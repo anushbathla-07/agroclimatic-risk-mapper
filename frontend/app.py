@@ -439,7 +439,7 @@ a{color:inherit; text-decoration:none;}
 
   <div class="glow-divider"></div>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT SECTION (INTEGRATED WITH WEB3FORMS FOR REAL EMAIL DELIVERY) -->
   <section class="section bg-surface" id="contact">
     <div class="wrap fade-in delay-3">
       <div class="contact-box">
@@ -447,23 +447,30 @@ a{color:inherit; text-decoration:none;}
         <h2>Let's grow together.</h2>
         <p style="margin-bottom:28px;">Have questions or want to partner with us? Send a message directly to <strong>anushbathla@gmail.com</strong> or call <strong>9837603778</strong>.</p>
         
-        <form id="contact-form">
+        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="dab13331-843a-4762-84ad-052b40438291">
+          
           <div class="form-group">
             <label>Your Name</label>
-            <input type="text" id="c-name" placeholder="Enter your name" required>
+            <input type="text" name="name" id="c-name" placeholder="Enter your name" required>
           </div>
           <div class="form-group">
             <label>Your Email / Phone</label>
-            <input type="text" id="c-contact" placeholder="Email or phone number" required>
+            <input type="text" name="email" id="c-contact" placeholder="Email or phone number" required>
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea id="c-msg" rows="4" placeholder="How can we help you?" required></textarea>
+            <textarea name="message" id="c-msg" rows="4" placeholder="How can we help you?" required></textarea>
           </div>
+          
+          <!-- Optional Honeypot spam protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          
           <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px; padding:16px;">Send Message (Notify Mr. Anush)</button>
         </form>
         <div id="form-success" style="display:none; margin-top:16px; padding:16px; background:rgba(34,197,94,0.15); border:1px solid var(--teal); border-radius:8px; color:var(--teal); font-family:var(--mono); font-size:0.85rem; text-align:center;">
-          ✅ Message dispatched successfully! Notifications configured for anushbathla@gmail.com.
+          ✅ Message dispatched successfully! Email sent to anushbathla@gmail.com.
         </div>
       </div>
     </div>
@@ -490,7 +497,6 @@ document.querySelectorAll('.fade-in').forEach(el => {
   observer.observe(el);
 });
 
-// Robust Local Dataset for States, Districts and Crops
 const locationData = {
   "Uttar Pradesh": ["Meerut", "Lucknow", "Ghaziabad", "Noida", "Varanasi", "Agra", "Muzaffarnagar", "Saharanpur"],
   "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda"],
@@ -509,7 +515,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkBtn = document.getElementById('check-risk-btn');
   const resultsDiv = document.getElementById('results');
 
-  // Populate States
   stateSelect.innerHTML = '<option value="">Select state</option>';
   Object.keys(locationData).forEach(state => {
     const opt = document.createElement('option');
@@ -518,7 +523,6 @@ document.addEventListener('DOMContentLoaded', () => {
     stateSelect.appendChild(opt);
   });
 
-  // Populate Crops
   cropSelect.innerHTML = '<option value="">Select crop</option>';
   cropsList.forEach(crop => {
     const opt = document.createElement('option');
@@ -527,7 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cropSelect.appendChild(opt);
   });
 
-  // State Change Event
   stateSelect.addEventListener('change', () => {
     const selectedState = stateSelect.value;
     villageSelect.innerHTML = '<option value="">Select district</option>';
@@ -553,7 +556,6 @@ document.addEventListener('DOMContentLoaded', () => {
     checkBtn.disabled = !(stateSelect.value && villageSelect.value && cropSelect.value);
   }
 
-  // Calculate Risk Action
   checkBtn.addEventListener('click', () => {
     const temp = Math.floor(26 + Math.random() * 10) + '°C';
     const rain = Math.floor(15 + Math.random() * 40) + ' mm';
@@ -571,16 +573,27 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
+  // AJAX submission for Web3Forms to show success message smoothly
   const form = document.getElementById('contact-form');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('c-name').value;
-    const contact = document.getElementById('c-contact').value;
-    const msg = document.getElementById('c-msg').value;
+    const formData = new FormData(form);
     
-    console.log(`Notification sent to anushbathla@gmail.com regarding query from ${name} (${contact}): ${msg}`);
-    form.reset();
-    document.getElementById('form-success').style.display = 'block';
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+      if (data.success) {
+        form.reset();
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Submission failed. Check your internet connection.");
+    }
   });
 });
 
