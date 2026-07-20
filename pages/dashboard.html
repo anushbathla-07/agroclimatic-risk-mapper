@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — AgroClimatic Risk Mapper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="brand">AgroClimatic<span>.</span></a>
+    <nav class="main-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="climate-map.html">Risk Map</a>
+      <a href="prediction.html">Predictions</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-sm">Get Early Access</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Field Risk Dashboard</p>
+      <h1 style="font-size:clamp(2rem, 4vw, 2.8rem);">Pick your field.<br>See its risk.</h1>
+      <p class="hero-sub">Choose your state, village, and crop — get a sample risk read across weather, soil, and disease pressure.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+
+      <div class="tool-panel">
+        <div class="select-group">
+          <label for="state-select">State</label>
+          <select id="state-select">
+            <option value="">Select state</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="village-select">Village / District</label>
+          <select id="village-select" disabled>
+            <option value="">Select state first</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="crop-select">Crop</label>
+          <select id="crop-select">
+            <option value="">Select crop</option>
+          </select>
+        </div>
+        <button id="check-risk-btn" class="btn-check" disabled>Check Risk</button>
+      </div>
+
+      <div id="results" class="results">
+
+        <div class="score-banner">
+          <div id="score-circle" class="score-circle">
+            <span class="num" id="score-num">—</span>
+            <span class="lbl">Risk Score</span>
+          </div>
+          <div class="score-meta">
+            <h3 id="score-title">—</h3>
+            <p id="score-sub">—</p>
+          </div>
+        </div>
+
+        <div class="report-grid">
+          <div class="report-card">
+            <h4>Weather</h4>
+            <div class="report-row"><span>Temperature</span><span id="w-temp">—</span></div>
+            <div class="report-row"><span>Rainfall (7d)</span><span id="w-rain">—</span></div>
+            <div class="report-row"><span>Humidity</span><span id="w-humid">—</span></div>
+          </div>
+          <div class="report-card">
+            <h4>Soil Health</h4>
+            <div class="report-row"><span>Moisture</span><span id="s-moist">—</span></div>
+            <div class="report-row"><span>pH Level</span><span id="s-ph">—</span></div>
+            <div class="report-row"><span>Fertility Index</span><span id="s-fert">—</span></div>
+          </div>
+          <div class="report-card">
+            <h4>Disease Watch</h4>
+            <div class="report-row"><span>Top Risk</span><span id="d-name">—</span></div>
+            <div class="report-row"><span>Probability</span><span id="d-prob">—</span></div>
+            <div class="report-row"><span>Stage</span><span id="d-stage">—</span></div>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <h4>Alerts</h4>
+          <div id="alerts-list" class="alerts-list"></div>
+        </div>
+
+        <p class="demo-note">Sample data generated for demo purposes — connects to live sensor &amp; satellite feeds in production.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="../index.html" class="brand">AgroClimatic<span>.</span></a>
+      <p>AI-powered agricultural risk assessment, built for the field.</p>
+    </div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="climate-map.html">Risk Map</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 AgroClimatic Risk Mapper. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/agro-data.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

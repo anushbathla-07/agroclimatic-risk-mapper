@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Map — AgroClimatic Risk Mapper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="brand">AgroClimatic<span>.</span></a>
+    <nav class="main-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="climate-map.html">Risk Map</a>
+      <a href="prediction.html">Predictions</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-sm">Get Early Access</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Live Risk Map</p>
+      <h1 style="font-size:clamp(2rem, 4vw, 2.8rem);">Every region, one glance.</h1>
+      <p class="hero-sub">Drag the globe to rotate it, hover any state for its live read, or pick one from the list.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap map-layout">
+
+      <div>
+        <div class="state-list" id="state-list"></div>
+        <div id="state-info" class="report-card" style="margin-top:16px; display:none;">
+          <h4 id="info-name">—</h4>
+          <div class="report-row"><span>Crop</span><span id="info-crop">—</span></div>
+          <div class="report-row"><span>Risk</span><span id="info-risk">—</span></div>
+          <div class="report-row"><span>Factor</span><span id="info-factor">—</span></div>
+        </div>
+      </div>
+
+      <div class="hero-globe-stage" style="position:relative;">
+        <div id="earth-globe" class="globe-canvas-wrap" style="max-width:640px;"></div>
+        <div id="globe-tooltip" class="globe-tooltip" hidden>
+          <span class="globe-tooltip-region"></span>
+          <span class="globe-tooltip-crop"></span>
+          <div class="globe-tooltip-row">
+            <span class="globe-tooltip-risk-label">Risk score</span>
+            <span class="globe-tooltip-risk-value"></span>
+          </div>
+          <span class="globe-tooltip-factor"></span>
+        </div>
+        <div class="globe-legend">
+          <span class="globe-legend-title">Field Risk Key</span>
+          <div class="globe-legend-row"><i class="dot dot-low"></i><span><strong>Low</strong> — stable conditions, no action needed</span></div>
+          <div class="globe-legend-row"><i class="dot dot-mod"></i><span><strong>Moderate</strong> — watch closely, minor stress signs</span></div>
+          <div class="globe-legend-row"><i class="dot dot-high"></i><span><strong>High</strong> — immediate attention recommended</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="../index.html" class="brand">AgroClimatic<span>.</span></a>
+      <p>AI-powered agricultural risk assessment, built for the field.</p>
+    </div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="climate-map.html">Risk Map</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 AgroClimatic Risk Mapper. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script type="module" src="../assets/js/earth-globe.js"></script>
+<script>
+  const CURATED = {
+    'Punjab':         { crop: 'Wheat',     risk: 38, level: 'Low',  factor: 'Canal-fed, stable moisture' },
+    'Maharashtra':    { crop: 'Cotton',    risk: 71, level: 'High', factor: 'Rainfall deficit −22%' },
+    'Uttar Pradesh':  { crop: 'Sugarcane', risk: 54, level: 'Moderate', factor: 'Rising pest activity' },
+    'Madhya Pradesh': { crop: 'Soybean',   risk: 62, level: 'Moderate', factor: 'Soil moisture below average' },
+    'Bihar':          { crop: 'Rice',      risk: 66, level: 'Moderate', factor: 'Delayed monsoon onset' },
+    'Karnataka':      { crop: 'Ragi',      risk: 33, level: 'Low',  factor: 'Favorable soil conditions' },
+    'Rajasthan':      { crop: 'Bajra',     risk: 78, level: 'High', factor: 'Heat stress, low rainfall' },
+    'Tamil Nadu':     { crop: 'Rice',      risk: 45, level: 'Low',  factor: 'Normal seasonal pattern' },
+  };
+  const listEl = document.getElementById('state-list');
+  Object.keys(CURATED).forEach((name) => {
+    const btn = document.createElement('button');
+    btn.textContent = name;
+    btn.addEventListener('click', () => {
+      const d = CURATED[name];
+      document.getElementById('info-name').textContent = name;
+      document.getElementById('info-crop').textContent = d.crop;
+      document.getElementById('info-risk').textContent = `${d.risk} · ${d.level}`;
+      document.getElementById('info-factor').textContent = d.factor;
+      document.getElementById('state-info').style.display = 'block';
+    });
+    listEl.appendChild(btn);
+  });
+</script>
+</body>
+</html>

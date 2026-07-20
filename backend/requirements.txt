@@ -1,0 +1,16 @@
+# FastAPI Framework
+fastapi==0.109.2
+uvicorn[standard]==0.27.1
+
+# Database & ORM (PostgreSQL + GIS)
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+geoalchemy2==0.14.3
+
+# Data Validation & Environment Variables
+pydantic==2.6.1
+pydantic-settings==2.1.0
+python-dotenv==1.0.1
+
+# Remote Sensing & Satellite API (For later)
+earthengine-api==0.1.388

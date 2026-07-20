@@ -1,0 +1,9 @@
+[theme]
+# Neon Green accents
+primaryColor = "#00FF00" 
+# Deep Blue background
+backgroundColor = "#041421" 
+# Slightly lighter blue for input boxes and sidebars
+secondaryBackgroundColor = "#0a2540" 
+textColor = "#E0E0E0"
+font = "sans serif"

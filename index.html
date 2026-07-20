@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroClimatic Risk Mapper — See the season before it happens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">AgroClimatic<span>.</span></a>
+    <nav class="main-nav">
+      <a href="pages/dashboard.html">Dashboard</a>
+      <a href="pages/climate-map.html">Risk Map</a>
+      <a href="pages/prediction.html">Predictions</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/contact.html">Contact</a>
+    </nav>
+    <a href="pages/contact.html" class="btn btn-primary btn-sm">Get Early Access</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO with 3D Globe -->
+  <section class="hero">
+    <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">AI-Powered Agro-Climatic Risk Assessment</p>
+        <h1>See the season<br>before it happens.</h1>
+        <p class="hero-sub">Satellite data, live weather, and machine learning — collapsed into one risk score per field, so a farmer knows what's coming before the sky changes.</p>
+        <div class="hero-actions">
+          <a href="pages/dashboard.html" class="btn btn-primary">View a Sample Report</a>
+          <a href="pages/about.html" class="btn btn-ghost">How it works →</a>
+        </div>
+        <div class="hero-stats">
+          <div><span>8</span>Regions live-mapped</div>
+          <div><span>24/7</span>Satellite + sensor refresh</div>
+          <div><span>1</span>Score per field</div>
+        </div>
+      </div>
+
+      <div class="hero-globe-stage">
+        <div id="earth-globe" class="globe-canvas-wrap"></div>
+        <div id="globe-tooltip" class="globe-tooltip" hidden>
+          <span class="globe-tooltip-region"></span>
+          <span class="globe-tooltip-crop"></span>
+          <div class="globe-tooltip-row">
+            <span class="globe-tooltip-risk-label">Risk score</span>
+            <span class="globe-tooltip-risk-value"></span>
+          </div>
+          <span class="globe-tooltip-factor"></span>
+        </div>
+        <div class="globe-hud">
+          <span class="globe-hud-label">LIVE · SAMPLE FEED</span>
+          <span class="globe-hud-hint">Drag to rotate · Hover a pin</span>
+        </div>
+        <div class="globe-legend">
+          <span class="globe-legend-title">Field Risk Key</span>
+          <div class="globe-legend-row"><i class="dot dot-low"></i><span><strong>Low</strong> — stable conditions, no action needed</span></div>
+          <div class="globe-legend-row"><i class="dot dot-mod"></i><span><strong>Moderate</strong> — watch closely, minor stress signs</span></div>
+          <div class="globe-legend-row"><i class="dot dot-high"></i><span><strong>High</strong> — immediate attention recommended</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider" aria-hidden="true"></div>
+
+  <!-- PROBLEM -->
+  <section class="section problem">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">The Problem</p>
+        <h2>Farming decisions still run<br>on guesswork.</h2>
+      </div>
+      <div class="problem-list">
+        <p>Climate unpredictability is threatening agricultural productivity worldwide. Farmers face erratic weather with no early warning — and by the time a risk is visible, the crop is already affected.</p>
+        <ul>
+          <li>No accessible AI tool exists for smallholder farmers to assess agro-climatic risk.</li>
+          <li>Traditional farming lacks real-time alerts and data-backed crop guidance.</li>
+          <li>Every degree of uncertainty translates directly into lost yield and income.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section features" id="features">
+    <div class="wrap">
+      <p class="eyebrow">What It Does</p>
+      <h2>Four systems, one score.</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-index">Weather</span>
+          <h3>Hyperlocal Forecasting</h3>
+          <p>Live weather data integrated at field-level resolution — not a regional average that misses your farm entirely.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">Disease</span>
+          <h3>ML Crop Disease Prediction</h3>
+          <p>Models trained on real crop data flag outbreak risk early, before it's visible to the eye.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">Soil</span>
+          <h3>Soil Health Analysis</h3>
+          <p>Sensor-driven diagnostics on fertility, moisture, and composition — read like a lab report, not a guess.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">Alerts</span>
+          <h3>Automated Risk Alerts</h3>
+          <p>Instant SMS and app notifications the moment climate, pest, or field conditions cross a threshold.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider" aria-hidden="true"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section process">
+    <div class="wrap">
+      <p class="eyebrow">How It Works</p>
+      <h2>From satellite to farmer, in three steps.</h2>
+      <ol class="process-steps">
+        <li>
+          <span class="step-num">01</span>
+          <h3>Data Collection</h3>
+          <p>Satellite imagery and IoT field sensors gather real-time agro-climatic data around the clock.</p>
+        </li>
+        <li>
+          <span class="step-num">02</span>
+          <h3>ML Processing</h3>
+          <p>Models analyze patterns across weather, soil, and crop history to score climate and disease risk.</p>
+        </li>
+        <li>
+          <span class="step-num">03</span>
+          <h3>Output Dashboard</h3>
+          <p>Results reach the farmer as one plain-language score and alert — on mobile, web, or SMS.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section why">
+    <div class="wrap two-col reverse">
+      <div class="why-visual">
+        <div class="stat-block">
+          <span class="stat-num">Hyperlocal</span>
+          <span class="stat-label">not regional averages</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">Multilingual</span>
+          <span class="stat-label">built for rural reach</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-num">Crop-specific</span>
+          <span class="stat-label">alerts, not generic weather</span>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Why AgroClimatic</p>
+        <h2>Generic weather apps stop<br>at the forecast. We don't.</h2>
+        <p class="hero-sub">Every alert is tied to a specific crop, field, and growth stage — bridging a gap no weather app or generic advisory has addressed for smallholder and mid-scale farmers alike.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider" aria-hidden="true"></div>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="wrap cta-inner">
+      <h2>Let's grow together.</h2>
+      <p>Join us in building smarter, more resilient agriculture — one field, one season at a time.</p>
+      <a href="pages/contact.html" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="brand">AgroClimatic<span>.</span></a>
+      <p>AI-powered agricultural risk assessment, built for the field.</p>
+    </div>
+    <div class="footer-links">
+      <a href="pages/about.html">About</a>
+      <a href="pages/dashboard.html">Dashboard</a>
+      <a href="pages/climate-map.html">Risk Map</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 AgroClimatic Risk Mapper. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/earth-globe.js"></script>
+</body>
+</html>
