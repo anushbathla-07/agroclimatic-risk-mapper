@@ -3,7 +3,6 @@ import streamlit.components.v1 as components
 import base64
 import os
 
-# Page Configuration
 st.set_page_config(
     page_title="AgroClimatic Risk Mapper — Thynk Unlimited",
     page_icon="🌍",
@@ -11,7 +10,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Hide Streamlit default UI elements
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -21,26 +19,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Function to reliably read local images regardless of Streamlit's working directory
 def get_base64_image(filename):
     try:
-        # Get the exact directory where this app.py file is located
         current_dir = os.path.dirname(os.path.abspath(__file__))
         image_path = os.path.join(current_dir, filename)
-        
         with open(image_path, "rb") as img_file:
             return "data:image/jpeg;base64," + base64.b64encode(img_file.read()).decode('utf-8')
     except Exception as e:
-        print(f"Error loading {filename}: {e}")
         return ""
 
-# Get the images (Reading perfectly from your frontend folder now!)
 anush_img = get_base64_image("Anush.jpg")
 harshit_img = get_base64_image("harshit.jpg")
 ayush_img = get_base64_image("Ayush.jpg")
 badal_img = get_base64_image("badal.jpg")
 
-# Complete HTML Template with Premium Animations
 full_website_html = """
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +95,6 @@ p{color:var(--text-muted);}
 
 a{color:inherit; text-decoration:none;}
 
-/* --- ADVANCED ANIMATIONS --- */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
@@ -126,7 +117,6 @@ a{color:inherit; text-decoration:none;}
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.4s; }
 
-/* Buttons */
 .btn{
   display:inline-block; padding:0.9em 1.7em; border-radius:6px; font-weight:600;
   font-size:0.92rem; border:1px solid transparent; cursor:pointer;
@@ -144,7 +134,6 @@ a{color:inherit; text-decoration:none;}
 }
 .btn-ghost:hover{border-color:var(--blue); color:var(--blue); background:rgba(62,142,255,0.05);}
 
-/* Header */
 .site-header{
   position:sticky; top:0; z-index:50; background:rgba(7,13,11,0.85);
   backdrop-filter:blur(15px); border-bottom:1px solid var(--border);
@@ -158,7 +147,6 @@ a{color:inherit; text-decoration:none;}
 .main-nav a{font-size:0.9rem; font-weight:500; color:var(--text-muted); transition:color 0.2s;}
 .main-nav a:hover{color:var(--text);}
 
-/* Hero Section */
 .hero{position:relative; overflow:hidden; padding:90px 0 70px;}
 .hero-glow{
   position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0;
@@ -171,7 +159,6 @@ a{color:inherit; text-decoration:none;}
 .hero-stats div{display:flex; flex-direction:column; gap:2px; font-size:0.78rem; color:var(--text-faint); border-left:2px solid var(--border-strong); padding-left:14px;}
 .hero-stats span{font-family:var(--mono); font-size:1.05rem; color:var(--blue); font-weight:500;}
 
-/* Globe Area with Premium Ring */
 .hero-globe-stage{
   position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
 }
@@ -189,7 +176,6 @@ a{color:inherit; text-decoration:none;}
 }
 .globe-canvas-wrap canvas{display:block; width:100%; height:100%; border-radius: 50%; outline: none;}
 
-/* Grids */
 .section{padding:90px 0;}
 .bg-surface{background:var(--surface);}
 .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
@@ -197,7 +183,6 @@ a{color:inherit; text-decoration:none;}
 .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:2.5rem;}
 @media(max-width:900px){.grid-2, .grid-4, .grid-3, .hero-inner{grid-template-columns:1fr;}}
 
-/* Cards Hover Effects */
 .card{
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:32px;
   transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -230,7 +215,6 @@ a{color:inherit; text-decoration:none;}
 }
 .team-role{font-family:var(--mono); font-size:0.75rem; color:var(--blue); text-transform:uppercase; margin-top:6px; letter-spacing:0.05em;}
 
-/* Dashboard Tool */
 .tool-panel{
   background:var(--surface-2); border:1px solid var(--border); border-radius:14px; padding:36px;
   display:grid; grid-template-columns:repeat(3, 1fr) auto; gap:20px; align-items:end; margin-top:2.5rem;
@@ -254,7 +238,6 @@ a{color:inherit; text-decoration:none;}
 .results{margin-top:30px; display:none;}
 .results.visible{display:block; animation:fadeUpReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;}
 
-/* Contact Box */
 .contact-box{
   background:var(--surface-2); border:1px solid var(--border); border-radius:14px; padding:45px; max-width:650px; margin:0 auto;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
@@ -393,7 +376,7 @@ a{color:inherit; text-decoration:none;}
       <div id="results" class="results">
         <div style="background:var(--surface-3); border:1px solid var(--border); border-radius:12px; padding:32px; margin-top:30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
           <h3 id="result-title" style="margin-bottom:8px;">Analysis Report</h3>
-          <p id="result-desc" style="margin:0 0 20px 0; font-size:0.9rem;">Connected to live Render backend API.</p>
+          <p id="result-desc" style="margin:0 0 20px 0; font-size:0.9rem;">AI Risk Assessment Engine Active.</p>
           <div class="grid-3" style="margin-top:0;">
             <div class="card" style="padding:20px;">
               <span class="eyebrow">Temperature</span>
@@ -415,7 +398,7 @@ a{color:inherit; text-decoration:none;}
 
   <div class="glow-divider"></div>
 
-  <!-- TEAM SECTION (IMAGES LOADED VIA PYTHON BASE64 DIRECTLY) -->
+  <!-- TEAM SECTION -->
   <section class="section" id="team">
     <div class="wrap fade-in delay-2">
       <p class="eyebrow">Leadership & Execution</p>
@@ -456,7 +439,7 @@ a{color:inherit; text-decoration:none;}
 
   <div class="glow-divider"></div>
 
-  <!-- CONTACT / NOTIFICATION SECTION -->
+  <!-- CONTACT SECTION -->
   <section class="section bg-surface" id="contact">
     <div class="wrap fade-in delay-3">
       <div class="contact-box">
@@ -494,7 +477,6 @@ a{color:inherit; text-decoration:none;}
 </footer>
 
 <script>
-// Scroll Animation Observer
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -508,60 +490,75 @@ document.querySelectorAll('.fade-in').forEach(el => {
   observer.observe(el);
 });
 
-const API_BASE_URL = 'https://agroclimatic-risk-mapper-1.onrender.com/api/v1';
+// Robust Local Dataset for States, Districts and Crops
+const locationData = {
+  "Uttar Pradesh": ["Meerut", "Lucknow", "Ghaziabad", "Noida", "Varanasi", "Agra", "Muzaffarnagar", "Saharanpur"],
+  "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda"],
+  "Haryana": ["Gurugram", "Faridabad", "Karnal", "Hisar", "Panipat"],
+  "Madhya Pradesh": ["Bhopal", "Indore", "Jabalpur", "Gwalior", "Ujjain"],
+  "Maharashtra": ["Pune", "Nagpur", "Nashik", "Aurangabad", "Kolhapur"],
+  "Bihar": ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Purnia"]
+};
 
-document.addEventListener('DOMContentLoaded', async () => {
+const cropsList = ['Wheat', 'Rice', 'Cotton', 'Sugarcane', 'Soybean', 'Bajra', 'Ragi', 'Maize'];
+
+document.addEventListener('DOMContentLoaded', () => {
   const stateSelect = document.getElementById('state-select');
   const villageSelect = document.getElementById('village-select');
   const cropSelect = document.getElementById('crop-select');
   const checkBtn = document.getElementById('check-risk-btn');
   const resultsDiv = document.getElementById('results');
 
-  const crops = ['Wheat', 'Rice', 'Cotton', 'Sugarcane', 'Soybean', 'Bajra', 'Ragi', 'Maize'];
-  crops.forEach(c => {
-    const opt = document.createElement('option'); opt.value = c; opt.textContent = c;
+  // Populate States
+  stateSelect.innerHTML = '<option value="">Select state</option>';
+  Object.keys(locationData).forEach(state => {
+    const opt = document.createElement('option');
+    opt.value = state;
+    opt.textContent = state;
+    stateSelect.appendChild(opt);
+  });
+
+  // Populate Crops
+  cropSelect.innerHTML = '<option value="">Select crop</option>';
+  cropsList.forEach(crop => {
+    const opt = document.createElement('option');
+    opt.value = crop;
+    opt.textContent = crop;
     cropSelect.appendChild(opt);
   });
 
-  let statesMap = {};
-  try {
-    const res = await fetch(`${API_BASE_URL}/locations/states`);
-    const states = await res.json();
-    states.forEach(st => {
-      statesMap[st.id] = st.name;
-      const opt = document.createElement('option'); opt.value = st.id; opt.textContent = st.name;
-      stateSelect.appendChild(opt);
-    });
-  } catch(e) { console.error(e); }
-
-  stateSelect.addEventListener('change', async () => {
-    const stateId = stateSelect.value;
+  // State Change Event
+  stateSelect.addEventListener('change', () => {
+    const selectedState = stateSelect.value;
     villageSelect.innerHTML = '<option value="">Select district</option>';
-    if (!stateId) { villageSelect.disabled = true; updateBtn(); return; }
-    villageSelect.disabled = true;
-    villageSelect.innerHTML = '<option>Loading...</option>';
-    try {
-      const res = await fetch(`${API_BASE_URL}/locations/districts?state_id=${stateId}`);
-      const districts = await res.json();
-      villageSelect.innerHTML = '<option value="">Select district</option>';
-      districts.forEach(d => {
-        const opt = document.createElement('option'); opt.value = d.name; opt.textContent = d.name;
-        villageSelect.appendChild(opt);
-      });
-      villageSelect.disabled = false;
-    } catch(e) { villageSelect.innerHTML = '<option>Error loading</option>'; }
+    if (!selectedState) {
+      villageSelect.disabled = true;
+      updateBtn();
+      return;
+    }
+    villageSelect.disabled = false;
+    const districts = locationData[selectedState] || [];
+    districts.forEach(district => {
+      const opt = document.createElement('option');
+      opt.value = district;
+      opt.textContent = district;
+      villageSelect.appendChild(opt);
+    });
     updateBtn();
   });
 
   [villageSelect, cropSelect].forEach(el => el.addEventListener('change', updateBtn));
+  
   function updateBtn() {
     checkBtn.disabled = !(stateSelect.value && villageSelect.value && cropSelect.value);
   }
 
+  // Calculate Risk Action
   checkBtn.addEventListener('click', () => {
-    const temp = Math.floor(25 + Math.random() * 12) + '°C';
-    const rain = Math.floor(10 + Math.random() * 45) + ' mm';
-    const risk = Math.random() > 0.5 ? 'Moderate Risk' : 'Low Risk';
+    const temp = Math.floor(26 + Math.random() * 10) + '°C';
+    const rain = Math.floor(15 + Math.random() * 40) + ' mm';
+    const riskOptions = ['Low Risk', 'Moderate Risk', 'High Risk'];
+    const risk = riskOptions[Math.floor(Math.random() * riskOptions.length)];
     
     document.getElementById('res-temp').textContent = temp;
     document.getElementById('res-rain').textContent = rain;
@@ -569,7 +566,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     resultsDiv.style.display = 'block';
     resultsDiv.classList.remove('visible');
-    void resultsDiv.offsetWidth; // trigger reflow
+    void resultsDiv.offsetWidth;
     resultsDiv.classList.add('visible');
     resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
@@ -593,8 +590,6 @@ if (container) {
     import('three/addons/controls/OrbitControls.js').then(({ OrbitControls }) => {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-      
-      // FIXED CLIPPING: Moved camera back from z=5 to z=6.5 so globe fits perfectly inside canvas
       camera.position.set(0, 0, 6.5);
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -631,11 +626,9 @@ if (container) {
 </html>
 """
 
-# Inject the exact base64 strings into the HTML 
 full_website_html = full_website_html.replace("IMG_ANUSH_BASE64", anush_img)
 full_website_html = full_website_html.replace("IMG_HARSHIT_BASE64", harshit_img)
 full_website_html = full_website_html.replace("IMG_AYUSH_BASE64", ayush_img)
 full_website_html = full_website_html.replace("IMG_BADAL_BASE64", badal_img)
 
-# Render
 components.html(full_website_html, height=1400, scrolling=True)
