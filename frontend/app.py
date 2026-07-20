@@ -21,15 +21,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Function to read local images and convert them for web display
-def get_base64_image(image_path):
+# Function to reliably read local images regardless of Streamlit's working directory
+def get_base64_image(filename):
     try:
+        # Get the exact directory where this app.py file is located
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        image_path = os.path.join(current_dir, filename)
+        
         with open(image_path, "rb") as img_file:
             return "data:image/jpeg;base64," + base64.b64encode(img_file.read()).decode('utf-8')
     except Exception as e:
+        print(f"Error loading {filename}: {e}")
         return ""
 
-# Get the images (Reading directly from your frontend folder)
+# Get the images (Reading perfectly from your frontend folder now!)
 anush_img = get_base64_image("Anush.jpg")
 harshit_img = get_base64_image("harshit.jpg")
 ayush_img = get_base64_image("Ayush.jpg")
