@@ -20,7 +20,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Complete Enterprise-Grade HTML + CSS + JS Frontend Application
-complete_website_html = """
+full_website_html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +81,6 @@ p{color:var(--text-muted);}
 
 a{color:inherit; text-decoration:none;}
 
-/* Buttons with glow animations */
 .btn{
   display:inline-block; padding:0.9em 1.7em; border-radius:6px; font-weight:600;
   font-size:0.92rem; border:1px solid transparent; cursor:pointer;
@@ -96,7 +95,6 @@ a{color:inherit; text-decoration:none;}
 }
 .btn-ghost:hover{border-color:var(--blue); color:var(--blue);}
 
-/* Header */
 .site-header{
   position:sticky; top:0; z-index:50; background:rgba(7,13,11,0.85);
   backdrop-filter:blur(12px); border-bottom:1px solid var(--border);
@@ -110,7 +108,6 @@ a{color:inherit; text-decoration:none;}
 .main-nav a{font-size:0.9rem; font-weight:500; color:var(--text-muted); transition:color 0.2s;}
 .main-nav a:hover{color:var(--text);}
 
-/* Hero Section */
 .hero{position:relative; overflow:hidden; padding:90px 0 70px;}
 .hero-glow{
   position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0;
@@ -123,12 +120,10 @@ a{color:inherit; text-decoration:none;}
 .hero-stats div{display:flex; flex-direction:column; gap:2px; font-size:0.78rem; color:var(--text-faint); border-left:2px solid var(--border-strong); padding-left:14px;}
 .hero-stats span{font-family:var(--mono); font-size:1.05rem; color:var(--blue); font-weight:500;}
 
-/* Globe */
 .hero-globe-stage{position:relative; display:flex; flex-direction:column; align-items:center;}
 .globe-canvas-wrap{width:100%; max-width:460px; aspect-ratio:1/1; margin:0 auto; cursor:grab; touch-action:none;}
 .globe-canvas-wrap canvas{display:block; width:100%; height:100%;}
 
-/* Sections */
 .section{padding:80px 0;}
 .bg-surface{background:var(--surface);}
 
@@ -138,14 +133,12 @@ a{color:inherit; text-decoration:none;}
 
 @media(max-width:900px){.grid-2, .grid-4, .grid-3, .hero-inner{grid-template-columns:1fr;}}
 
-/* Cards */
 .card{
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:28px;
   transition:transform 0.2s ease, border-color 0.2s ease;
 }
 .card:hover{transform:translateY(-4px); border-color:var(--border-strong);}
 
-/* Dashboard Tool */
 .tool-panel{
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:32px;
   display:grid; grid-template-columns:repeat(3, 1fr) auto; gap:18px; align-items:end; margin-top:2rem;
@@ -166,7 +159,6 @@ a{color:inherit; text-decoration:none;}
 .results.visible{display:block; animation:fadeUp 0.4s ease;}
 @keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
 
-/* Team Cards */
 .team-card{
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:24px; text-align:center;
 }
@@ -176,7 +168,6 @@ a{color:inherit; text-decoration:none;}
 }
 .team-role{font-family:var(--mono); font-size:0.75rem; color:var(--blue); text-transform:uppercase; margin-top:6px;}
 
-/* Contact Form */
 .contact-box{
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:40px; max-width:650px; margin:0 auto;
 }
@@ -217,15 +208,15 @@ a{color:inherit; text-decoration:none;}
       <div>
         <p class="eyebrow">Thynk Unlimited Startup Presentation — Presented by Anush</p>
         <h1>See the season<br>before it happens.</h1>
-        <p style="font-size: 1.08rem; max-width: 48ch;">AI-Powered Agricultural Risk Assessment Platform[cite: 6]. Satellite data, live weather, and machine learning models collapsed into one precision risk score per field.</p>
+        <p style="font-size: 1.08rem; max-width: 48ch;">AI-Powered Agricultural Risk Assessment Platform. Satellite data, live weather, and machine learning models collapsed into one precision risk score per field.</p>
         <div style="display:flex; gap:14px; margin-top:2rem;">
           <a href="#dashboard-tool" class="btn btn-primary">Launch Live Dashboard</a>
           <a href="#features" class="btn btn-ghost">Explore Features →</a>
         </div>
         <div class="hero-stats">
-          <div><span>Render Cloud</span>Backend Active[cite: 6]</div>
+          <div><span>Render Cloud</span>Backend Active</div>
           <div><span>9837603778</span>Direct Helpline</div>
-          <div><span>1 Score</span>Per Field[cite: 6]</div>
+          <div><span>1 Score</span>Per Field</div>
         </div>
       </div>
       <div class="hero-globe-stage">
@@ -240,14 +231,14 @@ a{color:inherit; text-decoration:none;}
   <section class="section bg-surface" id="problem">
     <div class="wrap grid-2">
       <div>
-        <p class="eyebrow">The Problem[cite: 6]</p>
-        <h2>Climate unpredictability threatens global agriculture[cite: 6].</h2>
-        <p>Farmers struggle with extreme weather patterns causing massive crop losses each season with zero early warning systems[cite: 6].</p>
+        <p class="eyebrow">The Problem</p>
+        <h2>Climate unpredictability threatens global agriculture.</h2>
+        <p>Farmers struggle with extreme weather patterns causing massive crop losses each season with zero early warning systems.</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:16px;">
         <div class="card"><h3 style="color:var(--danger); font-size:1rem; margin-bottom:4px;">Unpredictable Weather Losses</h3><p style="margin:0; font-size:0.9rem;">Sudden weather shifts cause unmitigated crop devastation.</p></div>
-        <div class="card"><h3 style="color:var(--gold); font-size:1rem; margin-bottom:4px;">Lack of Accessible AI Tools</h3><p style="margin:0; font-size:0.9rem;">Smallholder farmers lack localized predictive analytics[cite: 6].</p></div>
-        <div class="card"><h3 style="color:var(--blue); font-size:1rem; margin-bottom:4px;">Yield & Income Degradation</h3><p style="margin:0; font-size:0.9rem;">Every degree of climate uncertainty translates into lost livelihood[cite: 6].</p></div>
+        <div class="card"><h3 style="color:var(--gold); font-size:1rem; margin-bottom:4px;">Lack of Accessible AI Tools</h3><p style="margin:0; font-size:0.9rem;">Smallholder farmers lack localized predictive analytics.</p></div>
+        <div class="card"><h3 style="color:var(--blue); font-size:1rem; margin-bottom:4px;">Yield & Income Degradation</h3><p style="margin:0; font-size:0.9rem;">Every degree of climate uncertainty translates into lost livelihood.</p></div>
       </div>
     </div>
   </section>
@@ -257,28 +248,28 @@ a{color:inherit; text-decoration:none;}
   <!-- KEY FEATURES -->
   <section class="section" id="features">
     <div class="wrap">
-      <p class="eyebrow">What It Does[cite: 6]</p>
+      <p class="eyebrow">What It Does</p>
       <h2>Four core systems, one unified risk score.</h2>
       <div class="grid-4">
         <div class="card">
           <span class="eyebrow">Weather</span>
           <h3>Hyperlocal Forecasting</h3>
-          <p style="font-size:0.9rem;">Live weather integration with field-level precision[cite: 6].</p>
+          <p style="font-size:0.9rem;">Live weather integration with field-level precision.</p>
         </div>
         <div class="card">
           <span class="eyebrow">Disease</span>
           <h3>ML Disease Prediction</h3>
-          <p style="font-size:0.9rem;">Trained machine learning models flag outbreaks early[cite: 6].</p>
+          <p style="font-size:0.9rem;">Trained machine learning models flag outbreaks early.</p>
         </div>
         <div class="card">
           <span class="eyebrow">Soil</span>
           <h3>Soil Health Analysis</h3>
-          <p style="font-size:0.9rem;">Sensor diagnostics for fertility and moisture tracking[cite: 6].</p>
+          <p style="font-size:0.9rem;">Sensor diagnostics for fertility and moisture tracking.</p>
         </div>
         <div class="card">
           <span class="eyebrow">Alerts</span>
           <h3>Automated Risk Alerts</h3>
-          <p style="font-size:0.9rem;">Instant notifications when climate thresholds shift[cite: 6].</p>
+          <p style="font-size:0.9rem;">Instant notifications when climate thresholds shift.</p>
         </div>
       </div>
     </div>
@@ -289,7 +280,7 @@ a{color:inherit; text-decoration:none;}
   <!-- LIVE DASHBOARD TOOL -->
   <section class="section bg-surface" id="dashboard-tool">
     <div class="wrap">
-      <p class="eyebrow">Interactive Dashboard[cite: 6]</p>
+      <p class="eyebrow">Interactive Dashboard</p>
       <h2>Select location & crop for instant risk report.</h2>
       
       <div class="tool-panel">
@@ -338,30 +329,30 @@ a{color:inherit; text-decoration:none;}
   <section class="section" id="team">
     <div class="wrap">
       <p class="eyebrow">Leadership & Execution</p>
-      <h2>Meet the Team behind AgroClimatic[cite: 6].</h2>
+      <h2>Meet the Team behind AgroClimatic.</h2>
       <div class="grid-4">
         <div class="team-card">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" class="team-avatar" alt="Anush">
           <h3>ANUSH</h3>
-          <div class="team-role">Strategy & Pitching[cite: 6]</div>
+          <div class="team-role">Strategy & Pitching</div>
           <p style="font-size:0.85rem; margin-top:10px;">Project lead and business expansion strategist.</p>
         </div>
         <div class="team-card">
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" class="team-avatar" alt="Harshit Kumar">
           <h3>HARSHIT KUMAR</h3>
-          <div class="team-role">Full-Stack & ML Dev[cite: 6]</div>
+          <div class="team-role">Full-Stack & ML Dev</div>
           <p style="font-size:0.85rem; margin-top:10px;">Core architecture and AI model integration.</p>
         </div>
         <div class="team-card">
           <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" class="team-avatar" alt="Ayush Kumar">
           <h3>AYUSH KUMAR</h3>
-          <div class="team-role">UI/UX Designer[cite: 6]</div>
+          <div class="team-role">UI/UX Designer</div>
           <p style="font-size:0.85rem; margin-top:10px;">Interface design and interactive dashboard layouts.</p>
         </div>
         <div class="team-card">
           <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300" class="team-avatar" alt="Badal">
           <h3>BADAL</h3>
-          <div class="team-role">Agriculture Expert[cite: 6]</div>
+          <div class="team-role">Agriculture Expert</div>
           <p style="font-size:0.85rem; margin-top:10px;">Agronomic parameters and field testing specialist.</p>
         </div>
       </div>
@@ -375,7 +366,7 @@ a{color:inherit; text-decoration:none;}
     <div class="wrap">
       <div class="contact-box">
         <p class="eyebrow">Get in Touch</p>
-        <h2>Let's grow together[cite: 6].</h2>
+        <h2>Let's grow together.</h2>
         <p style="margin-bottom:24px;">Have questions or want to partner with us? Send a message directly to <strong>anushbathla@gmail.com</strong> or call <strong>9837603778</strong>.</p>
         
         <form id="contact-form">
@@ -403,12 +394,11 @@ a{color:inherit; text-decoration:none;}
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 AgroClimatic Risk Mapper — Thynk Unlimited. Helpline: 9837603778[cite: 6]. All rights reserved.</span>
+    <span>© 2026 AgroClimatic Risk Mapper — Thynk Unlimited. Helpline: 9837603778. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-// --- BACKEND API & DASHBOARD LOGIC ---
 const API_BASE_URL = 'https://agroclimatic-risk-mapper-1.onrender.com/api/v1';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -471,7 +461,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // Contact Form Mock Dispatch
   const form = document.getElementById('contact-form');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -479,14 +468,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const contact = document.getElementById('c-contact').value;
     const msg = document.getElementById('c-msg').value;
     
-    // Simulate email notification trigger to anushbathla@gmail.com and 9837603778
     console.log(`Notification sent to anushbathla@gmail.com regarding query from ${name} (${contact}): ${msg}`);
     form.reset();
     document.getElementById('form-success').style.display = 'block';
   });
 });
 
-// --- THREE.JS EARTH GLOBE ---
 const container = document.getElementById('earth-globe');
 if (container) {
   import('three').then(THREE => {
@@ -529,5 +516,4 @@ if (container) {
 </html>
 """
 
-# Render inside Streamlit component
 components.html(full_website_html, height=1350, scrolling=True)
