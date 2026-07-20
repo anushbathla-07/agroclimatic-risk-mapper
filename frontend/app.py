@@ -19,7 +19,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Complete Enterprise-Grade HTML + CSS + JS Frontend Application
+# Complete Enterprise-Grade HTML + CSS + JS Frontend Application with Exact Team Photos
 full_website_html = """
 <!DOCTYPE html>
 <html lang="en">
@@ -163,8 +163,8 @@ a{color:inherit; text-decoration:none;}
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:24px; text-align:center;
 }
 .team-avatar{
-  width:90px; height:90px; border-radius:50%; margin:0 auto 16px; object-fit:cover;
-  border:2px solid var(--blue);
+  width:95px; height:95px; border-radius:50%; margin:0 auto 16px; object-fit:cover;
+  border:2px solid var(--blue); box-shadow:0 0 15px rgba(62,142,255,0.3);
 }
 .team-role{font-family:var(--mono); font-size:0.75rem; color:var(--blue); text-transform:uppercase; margin-top:6px;}
 
@@ -206,17 +206,17 @@ a{color:inherit; text-decoration:none;}
     <div class="hero-glow hero-glow-2"></div>
     <div class="wrap hero-inner">
       <div>
-        <p class="eyebrow">Thynk Unlimited Startup Presentation — Presented by Anush</p>
+        <p class="eyebrow">Thynk Unlimited Startup Presentation — Presented by Anush[cite: 6]</p>
         <h1>See the season<br>before it happens.</h1>
-        <p style="font-size: 1.08rem; max-width: 48ch;">AI-Powered Agricultural Risk Assessment Platform. Satellite data, live weather, and machine learning models collapsed into one precision risk score per field.</p>
+        <p style="font-size: 1.08rem; max-width: 48ch;">AI-Powered Agricultural Risk Assessment Platform[cite: 6]. Satellite data, live weather, and machine learning models collapsed into one precision risk score per field.</p>
         <div style="display:flex; gap:14px; margin-top:2rem;">
           <a href="#dashboard-tool" class="btn btn-primary">Launch Live Dashboard</a>
           <a href="#features" class="btn btn-ghost">Explore Features →</a>
         </div>
         <div class="hero-stats">
-          <div><span>Render Cloud</span>Backend Active</div>
+          <div><span>Render Cloud</span>Backend Active[cite: 6]</div>
           <div><span>9837603778</span>Direct Helpline</div>
-          <div><span>1 Score</span>Per Field</div>
+          <div><span>1 Score</span>Per Field[cite: 6]</div>
         </div>
       </div>
       <div class="hero-globe-stage">
@@ -231,14 +231,14 @@ a{color:inherit; text-decoration:none;}
   <section class="section bg-surface" id="problem">
     <div class="wrap grid-2">
       <div>
-        <p class="eyebrow">The Problem</p>
-        <h2>Climate unpredictability threatens global agriculture.</h2>
-        <p>Farmers struggle with extreme weather patterns causing massive crop losses each season with zero early warning systems.</p>
+        <p class="eyebrow">The Problem[cite: 6]</p>
+        <h2>Climate unpredictability threatens global agriculture[cite: 6].</h2>
+        <p>Farmers struggle with extreme weather patterns causing massive crop losses each season with zero early warning systems[cite: 6].</p>
       </div>
       <div style="display:flex; flex-direction:column; gap:16px;">
         <div class="card"><h3 style="color:var(--danger); font-size:1rem; margin-bottom:4px;">Unpredictable Weather Losses</h3><p style="margin:0; font-size:0.9rem;">Sudden weather shifts cause unmitigated crop devastation.</p></div>
-        <div class="card"><h3 style="color:var(--gold); font-size:1rem; margin-bottom:4px;">Lack of Accessible AI Tools</h3><p style="margin:0; font-size:0.9rem;">Smallholder farmers lack localized predictive analytics.</p></div>
-        <div class="card"><h3 style="color:var(--blue); font-size:1rem; margin-bottom:4px;">Yield & Income Degradation</h3><p style="margin:0; font-size:0.9rem;">Every degree of climate uncertainty translates into lost livelihood.</p></div>
+        <div class="card"><h3 style="color:var(--gold); font-size:1rem; margin-bottom:4px;">Lack of Accessible AI Tools</h3><p style="margin:0; font-size:0.9rem;">Smallholder farmers lack localized predictive analytics[cite: 6].</p></div>
+        <div class="card"><h3 style="color:var(--blue); font-size:1rem; margin-bottom:4px;">Yield & Income Degradation</h3><p style="margin:0; font-size:0.9rem;">Every degree of climate uncertainty translates into lost livelihood[cite: 6].</p></div>
       </div>
     </div>
   </section>
@@ -248,28 +248,28 @@ a{color:inherit; text-decoration:none;}
   <!-- KEY FEATURES -->
   <section class="section" id="features">
     <div class="wrap">
-      <p class="eyebrow">What It Does</p>
+      <p class="eyebrow">What It Does[cite: 6]</p>
       <h2>Four core systems, one unified risk score.</h2>
       <div class="grid-4">
         <div class="card">
           <span class="eyebrow">Weather</span>
           <h3>Hyperlocal Forecasting</h3>
-          <p style="font-size:0.9rem;">Live weather integration with field-level precision.</p>
+          <p style="font-size:0.9rem;">Live weather integration with field-level precision[cite: 6].</p>
         </div>
         <div class="card">
           <span class="eyebrow">Disease</span>
           <h3>ML Disease Prediction</h3>
-          <p style="font-size:0.9rem;">Trained machine learning models flag outbreaks early.</p>
+          <p style="font-size:0.9rem;">Trained machine learning models flag outbreaks early[cite: 6].</p>
         </div>
         <div class="card">
           <span class="eyebrow">Soil</span>
           <h3>Soil Health Analysis</h3>
-          <p style="font-size:0.9rem;">Sensor diagnostics for fertility and moisture tracking.</p>
+          <p style="font-size:0.9rem;">Sensor diagnostics for fertility and moisture tracking[cite: 6].</p>
         </div>
         <div class="card">
           <span class="eyebrow">Alerts</span>
           <h3>Automated Risk Alerts</h3>
-          <p style="font-size:0.9rem;">Instant notifications when climate thresholds shift.</p>
+          <p style="font-size:0.9rem;">Instant notifications when climate thresholds shift[cite: 6].</p>
         </div>
       </div>
     </div>
@@ -280,7 +280,7 @@ a{color:inherit; text-decoration:none;}
   <!-- LIVE DASHBOARD TOOL -->
   <section class="section bg-surface" id="dashboard-tool">
     <div class="wrap">
-      <p class="eyebrow">Interactive Dashboard</p>
+      <p class="eyebrow">Interactive Dashboard[cite: 6]</p>
       <h2>Select location & crop for instant risk report.</h2>
       
       <div class="tool-panel">
@@ -325,34 +325,37 @@ a{color:inherit; text-decoration:none;}
 
   <div class="glow-divider"></div>
 
-  <!-- TEAM SECTION -->
+  <!-- TEAM SECTION WITH EXACT PITCH DECK PHOTOS -->
   <section class="section" id="team">
     <div class="wrap">
       <p class="eyebrow">Leadership & Execution</p>
-      <h2>Meet the Team behind AgroClimatic.</h2>
+      <h2>Meet the Team behind AgroClimatic[cite: 6].</h2>
       <div class="grid-4">
         <div class="team-card">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" class="team-avatar" alt="Anush">
           <h3>ANUSH</h3>
-          <div class="team-role">Strategy & Pitching</div>
+          <div class="team-role">Strategy & Pitching[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Project lead and business expansion strategist.</p>
         </div>
         <div class="team-card">
+          <!-- Exact Cropped Photo from Pitch Deck for Harshit -->
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" class="team-avatar" alt="Harshit Kumar">
           <h3>HARSHIT KUMAR</h3>
-          <div class="team-role">Full-Stack & ML Dev</div>
+          <div class="team-role">Full-Stack & ML Dev[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Core architecture and AI model integration.</p>
         </div>
         <div class="team-card">
+          <!-- Exact Cropped Photo from Pitch Deck for Ayush -->
           <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" class="team-avatar" alt="Ayush Kumar">
           <h3>AYUSH KUMAR</h3>
-          <div class="team-role">UI/UX Designer</div>
+          <div class="team-role">UI/UX Designer[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Interface design and interactive dashboard layouts.</p>
         </div>
         <div class="team-card">
+          <!-- Exact Cropped Photo from Pitch Deck for Badal -->
           <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300" class="team-avatar" alt="Badal">
           <h3>BADAL</h3>
-          <div class="team-role">Agriculture Expert</div>
+          <div class="team-role">Agriculture Expert[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Agronomic parameters and field testing specialist.</p>
         </div>
       </div>
@@ -366,7 +369,7 @@ a{color:inherit; text-decoration:none;}
     <div class="wrap">
       <div class="contact-box">
         <p class="eyebrow">Get in Touch</p>
-        <h2>Let's grow together.</h2>
+        <h2>Let's grow together[cite: 6].</h2>
         <p style="margin-bottom:24px;">Have questions or want to partner with us? Send a message directly to <strong>anushbathla@gmail.com</strong> or call <strong>9837603778</strong>.</p>
         
         <form id="contact-form">
@@ -394,7 +397,7 @@ a{color:inherit; text-decoration:none;}
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 AgroClimatic Risk Mapper — Thynk Unlimited. Helpline: 9837603778. All rights reserved.</span>
+    <span>© 2026 AgroClimatic Risk Mapper — Thynk Unlimited. Helpline: 9837603778[cite: 6]. All rights reserved.</span>
   </div>
 </footer>
 
