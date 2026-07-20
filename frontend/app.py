@@ -163,8 +163,8 @@ a{color:inherit; text-decoration:none;}
   background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:24px; text-align:center;
 }
 .team-avatar{
-  width:95px; height:95px; border-radius:50%; margin:0 auto 16px; object-fit:cover;
-  border:2px solid var(--blue); box-shadow:0 0 15px rgba(62,142,255,0.3);
+  width:100px; height:100px; border-radius:50%; margin:0 auto 16px; object-fit:cover; object-position:top;
+  border:2px solid var(--blue); box-shadow:0 0 15px rgba(62,142,255,0.4);
 }
 .team-role{font-family:var(--mono); font-size:0.75rem; color:var(--blue); text-transform:uppercase; margin-top:6px;}
 
@@ -332,28 +332,29 @@ a{color:inherit; text-decoration:none;}
       <h2>Meet the Team behind AgroClimatic[cite: 6].</h2>
       <div class="grid-4">
         <div class="team-card">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" class="team-avatar" alt="Anush">
+          <!-- Exact Cropped Photo from Pitch Deck for Anush -->
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300" class="team-avatar" alt="Anush">
           <h3>ANUSH</h3>
           <div class="team-role">Strategy & Pitching[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Project lead and business expansion strategist.</p>
         </div>
         <div class="team-card">
           <!-- Exact Cropped Photo from Pitch Deck for Harshit -->
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" class="team-avatar" alt="Harshit Kumar">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300" class="team-avatar" alt="Harshit Kumar">
           <h3>HARSHIT KUMAR</h3>
           <div class="team-role">Full-Stack & ML Dev[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Core architecture and AI model integration.</p>
         </div>
         <div class="team-card">
           <!-- Exact Cropped Photo from Pitch Deck for Ayush -->
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" class="team-avatar" alt="Ayush Kumar">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300" class="team-avatar" alt="Ayush Kumar">
           <h3>AYUSH KUMAR</h3>
           <div class="team-role">UI/UX Designer[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Interface design and interactive dashboard layouts.</p>
         </div>
         <div class="team-card">
           <!-- Exact Cropped Photo from Pitch Deck for Badal -->
-          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300" class="team-avatar" alt="Badal">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=300" class="team-avatar" alt="Badal">
           <h3>BADAL</h3>
           <div class="team-role">Agriculture Expert[cite: 6]</div>
           <p style="font-size:0.85rem; margin-top:10px;">Agronomic parameters and field testing specialist.</p>
