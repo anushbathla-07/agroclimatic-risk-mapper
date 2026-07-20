@@ -22,7 +22,10 @@ from app.schemas.climate import ClimateCreate, ClimateResponse
 warnings.filterwarnings("ignore", category=UserWarning)
 
 # Yeh line Supabase/PostgreSQL mein tables create karegi (agar wo pehle se nahi hain)
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Skipping table auto-creation with spatial warning: {e}")
 
 app = FastAPI(title="AgroClimatic Risk Mapper API", version="1.0")
 
