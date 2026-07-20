@@ -36,7 +36,7 @@ ayush_img = get_base64_image("Ayush.jpg")
 badal_img = get_base64_image("badal.jpg")
 
 # Complete HTML Template with Premium Animations
-html_template = """
+full_website_html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
